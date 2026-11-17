@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <header class="chat-header">
+            <div class="avatar">🤖</div>
+            <div>
+                <h1>AI Chatbot</h1>
+                <span class="status">Online</span>
+            </div>
+        </header>
+
+        <main class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                <div class="bubble">Halo! Ada yang bisa saya bantu? 😊</div>
+            </div>
+        </main>
+
+        <form class="chat-input" id="chatForm">
+            <input
+                type="text"
+                id="userInput"
+                placeholder="Ketik pesan..."
+                autocomplete="off"
+                required
+            />
+            <button type="submit" id="sendBtn">Kirim</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
