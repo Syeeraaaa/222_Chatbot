@@ -17,13 +17,13 @@ app.post("/api/chat", async (req, res) => {
     try{
         const message = req.body.message;
 
-        if(!message || Array.isArray(message)){
+        if(!message || !Array.isArray(message)){
             return res.status(400).json({
-                error: "Message harus berupa array"
+                error: `Message harus berupa array`
             });
         }
         const response = await fetch(
-            "https://openrouter.ai/v1/chat/completions",
+            "https://openrouter.ai/api/v1/chat/completions",
             {
                 method: "POST",
                 headers: {
@@ -85,7 +85,7 @@ app.post("/api/chat", async (req, res) => {
                     const json = JSON.parse(data);
                     const content = json.choices?.[0]?.delta?.content;
                     if(content){
-                        res.write(`Data: ${JSON.stringify(content)}\n\n`);
+                        res.write(`data: ${JSON.stringify(content)}\n\n`);
                     }
                     
                 }
@@ -96,8 +96,8 @@ app.post("/api/chat", async (req, res) => {
             }
             
         }
-        res.write("data: [DONE]\n\n");
-        res.end;
+        res.write(`data: [DONE]\n\n`);
+        res.end();
     }
     catch (erro){
         console.error("Server Error:, error");
@@ -105,7 +105,7 @@ app.post("/api/chat", async (req, res) => {
             res.status(500).json({error: "Terjadi kesalahan pada server"});
         }else{
             res.write(`data: ${JSON.stringify("Terjadi Kesalahn pada server")}`);
-            res.end
+            res.end();
         }
     }
 });
