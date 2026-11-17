@@ -1,7 +1,7 @@
 const express = require("express");
 const dotenv  = require("dotenv");
 
-dontenv.config();
+dotenv.config();
 
 const app = express();
 const PORT = 3000;
